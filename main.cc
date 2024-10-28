@@ -14,22 +14,29 @@ int main() {
   RAM = new long int[8192];
 
   freeList me(RAM,8192);
+  cout << "Start" << endl;
   me.print();
 
   long int* addr1 = me.reserve_space(100);
+  cout << "Allocation 1" << endl;
   me.print();
   long int* addr2 = me.reserve_space(200);
+  cout << "Allocation 2" << endl;
   me.print();
 
   me.free_space( addr1 );
+  cout << "Free 1" << endl;
   me.print();
   me.coalesce_forward();
+  cout << "Coalesce 1" << endl;
   me.print();
 
   me.free_space( addr2 );
+  cout << "Free 2" << endl;
   me.print();
 
   me.coalesce_forward();
+  cout << "Coalesce 2" << endl;
   me.print();
   
   
